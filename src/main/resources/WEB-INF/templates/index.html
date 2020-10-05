@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Weather</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" th:href="@{static/css/style.css}">
+</head>
+<body>
+
+<form id="create-form" th:action="@{/get}" th:method="get" accept-charset="utf-8">
+    <div class="row">
+        <label for="holder-input-city">Input city</label><input id="holder-input-city" name="city" type="text" placeholder="Input city"/>
+    </div>
+    <div class="row">
+        <button type="submit">Get</button>
+    </div>
+</form>
+
+<div class="row">
+    <h1 th:text="${city}">NN</h1>
+</div>
+
+<div class="row">
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Min t</th>
+                <th>Avg t</th>
+                <th>Max t</th>
+                <th>Sun hour</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="weather : ${weathers}">
+                <td th:text="${weather?.date}">12.21.1221</td>
+                <td th:text="${weather?.mintempC}">0</td>
+                <td th:text="${weather?.avgtempC}">0</td>
+                <td th:text="${weather?.maxtempC}">0</td>
+                <td th:text="${weather?.sunHour}">0</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
