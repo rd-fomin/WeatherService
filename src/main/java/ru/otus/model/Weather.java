@@ -3,9 +3,9 @@ package ru.otus.model;
 public class Weather {
 
     private String date;
-    private String mintempC;
-    private String avgtempC;
-    private String maxtempC;
+    private String minTempC;
+    private String avgTempC;
+    private String maxTempC;
     private String sunHour;
 
     public Weather() {  }
@@ -14,49 +14,54 @@ public class Weather {
         return date;
     }
 
-    public void setDate(String date) {
+    public Weather setDate(String date) {
         this.date = date;
+        return this;
     }
 
-    public String getMintempC() {
-        return mintempC;
+    public String getMinTempC() {
+        return minTempC + " °C";
     }
 
-    public void setMintempC(String mintempC) {
-        this.mintempC = mintempC;
+    public Weather setMinTempC(String minTempC) {
+        this.minTempC = minTempC;
+        return this;
     }
 
-    public String getAvgtempC() {
-        return avgtempC;
+    public String getAvgTempC() {
+        return avgTempC + " °C";
     }
 
-    public void setAvgtempC(String avgtempC) {
-        this.avgtempC = avgtempC;
+    public Weather setAvgTempC(String avgTempC) {
+        this.avgTempC = avgTempC;
+        return this;
     }
 
-    public String getMaxtempC() {
-        return maxtempC;
+    public String getMaxTempC() {
+        return maxTempC + " °C";
     }
 
-    public void setMaxtempC(String maxtempC) {
-        this.maxtempC = maxtempC;
+    public Weather setMaxTempC(String maxTempC) {
+        this.maxTempC = maxTempC;
+        return this;
     }
 
     public String getSunHour() {
         return sunHour;
     }
 
-    public void setSunHour(String sunHour) {
+    public Weather setSunHour(String sunHour) {
         this.sunHour = sunHour;
+        return this;
     }
 
     @Override
     public String toString() {
         return "Weather{" +
                 "date='" + date + '\'' +
-                ", mintempC='" + mintempC + '\'' +
-                ", avgtempC='" + avgtempC + '\'' +
-                ", maxtempC='" + maxtempC + '\'' +
+                ", minTempC='" + minTempC + '\'' +
+                ", avgTempC='" + avgTempC + '\'' +
+                ", maxTempC='" + maxTempC + '\'' +
                 ", sunHour='" + sunHour + '\'' +
                 '}';
     }

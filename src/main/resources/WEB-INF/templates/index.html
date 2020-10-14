@@ -11,6 +11,11 @@
 <form id="create-form" th:action="@{/get}" th:method="get" accept-charset="utf-8">
     <div class="row">
         <label for="holder-input-city">Input city</label><input id="holder-input-city" name="city" type="text" placeholder="Input city"/>
+        <label for="holder-input-dt">Choose date</label>
+        <select id="holder-input-dt" form="create-form" name="dt">
+            <option value="" selected>none</option>
+            <option th:each="date : ${dates}" th:text="${date.key}" th:value="${date.value}"></option>
+        </select>
     </div>
     <div class="row">
         <button type="submit">Get</button>
@@ -35,9 +40,9 @@
         <tbody>
             <tr th:each="weather : ${weathers}">
                 <td th:text="${weather?.date}">12.21.1221</td>
-                <td th:text="${weather?.mintempC}">0</td>
-                <td th:text="${weather?.avgtempC}">0</td>
-                <td th:text="${weather?.maxtempC}">0</td>
+                <td th:text="${weather?.minTempC}">0</td>
+                <td th:text="${weather?.avgTempC}">0</td>
+                <td th:text="${weather?.maxTempC}">0</td>
                 <td th:text="${weather?.sunHour}">0</td>
             </tr>
         </tbody>
