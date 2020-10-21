@@ -1,4 +1,4 @@
-package ru.otus;
+package ru.mai;
 
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;

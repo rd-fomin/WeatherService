@@ -1,4 +1,4 @@
-package ru.otus.controllers;
+package ru.mai.controllers;
 
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -10,8 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
-import ru.otus.model.Weather;
-import ru.otus.utils.WeatherUtils;
+import ru.mai.model.Weather;
+import ru.mai.utils.WeatherUtils;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

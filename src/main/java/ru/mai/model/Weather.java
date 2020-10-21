@@ -1,4 +1,4 @@
-package ru.otus.model;
+package ru.mai.model;
 
 public class Weather {
 

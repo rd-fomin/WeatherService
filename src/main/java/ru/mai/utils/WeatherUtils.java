@@ -1,8 +1,8 @@
-package ru.otus.utils;
+package ru.mai.utils;
 
 import org.joda.time.DurationFieldType;
 import org.joda.time.LocalDate;
-import ru.otus.model.Weather;
+import ru.mai.model.Weather;
 
 import java.util.*;
 
