@@ -1,12 +1,13 @@
 plugins {
+    id 'idea'
     id 'war'
 }
 
 group 'ru.mai'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 13
-targetCompatibility = 13
+sourceCompatibility = JavaVersion.VERSION_13
+targetCompatibility = JavaVersion.VERSION_13
 
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
