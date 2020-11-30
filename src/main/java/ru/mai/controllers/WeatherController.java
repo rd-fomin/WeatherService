@@ -40,6 +40,7 @@ public class WeatherController {
             var inetAddr = Inet4Address.getLocalHost();
             model.addAttribute("ip", inetAddr.getHostAddress());
         } catch (UnknownHostException e) {
+            model.addAttribute("ip", "0.0.0.0");
             e.printStackTrace();
         }
         return "index";
