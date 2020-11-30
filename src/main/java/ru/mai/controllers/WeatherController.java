@@ -14,8 +14,7 @@ import ru.mai.model.Weather;
 import ru.mai.utils.WeatherUtils;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,6 +36,12 @@ public class WeatherController {
         model.addAttribute("weathers", WeatherUtils.WEATHERS);
         model.addAttribute("city", WeatherUtils.CITY);
         model.addAttribute("dates", WeatherUtils.DATES);
+        try {
+            var inetAddr = Inet4Address.getLocalHost();
+            model.addAttribute("ip", inetAddr.getHostAddress());
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
         return "index";
     }
 
