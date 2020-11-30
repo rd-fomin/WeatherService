@@ -52,8 +52,9 @@ public class WeatherController {
         if (dt != null) {
             var calendar = Calendar.getInstance();
             calendar.setTimeInMillis(dt);
-            DateFormat dataFormat = new SimpleDateFormat("yyyy-MM-dd");
-            stringURL = host + "?q=" + city + "&key=df1f116fe46d494e930104120200410&format=json&date=" + dataFormat.format(calendar.getTime());
+            stringURL = host + "?q=" +
+                    city + "&key=df1f116fe46d494e930104120200410&format=json" +
+                    "&date=" + new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime());
         } else {
             stringURL = host + "?q=" + city + "&key=df1f116fe46d494e930104120200410&format=json";
         }
