@@ -15,7 +15,6 @@ import ru.mai.utils.WeatherUtils;
 
 import java.io.IOException;
 import java.net.*;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -36,13 +35,7 @@ public class WeatherController {
         model.addAttribute("weathers", WeatherUtils.WEATHERS);
         model.addAttribute("city", WeatherUtils.CITY);
         model.addAttribute("dates", WeatherUtils.DATES);
-        try {
-            var inetAddr = Inet4Address.getLocalHost();
-            model.addAttribute("ip", inetAddr.getHostAddress());
-        } catch (UnknownHostException e) {
-            model.addAttribute("ip", "0.0.0.0");
-            e.printStackTrace();
-        }
+        model.addAttribute("ip", WeatherUtils.IP);
         return "index";
     }
 

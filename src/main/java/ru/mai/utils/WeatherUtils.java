@@ -10,6 +10,7 @@ public class WeatherUtils {
     public static String CITY = "";
     public static List<Weather> WEATHERS = new ArrayList<>();
     public static final Map<String, Long> DATES = new TreeMap<>();
+    public static String IP = "0.0.0.0";
 
     static {
         var startDate = LocalDate.fromDateFields(Calendar.getInstance().getTime());
