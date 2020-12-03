@@ -25,6 +25,7 @@ public class WeatherController {
     private final Logger logger = LoggerFactory.getLogger(WeatherController.class);
 
     private final String host;
+    private final String key = "1aa21815fa31432ea6f134434200312";
 
     public WeatherController(@Value("${url}") String host) {
         this.host = host;
@@ -46,10 +47,10 @@ public class WeatherController {
             var calendar = Calendar.getInstance();
             calendar.setTimeInMillis(dt);
             stringURL = host + "?q=" +
-                    city + "&key=df1f116fe46d494e930104120200410&format=json" +
+                    city + "&key=" + key + "&format=json" +
                     "&date=" + new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime());
         } else {
-            stringURL = host + "?q=" + city + "&key=df1f116fe46d494e930104120200410&format=json";
+            stringURL = host + "?q=" + city + "&key=" + key + "&format=json";
         }
         try {
             var url = new URL(stringURL);
