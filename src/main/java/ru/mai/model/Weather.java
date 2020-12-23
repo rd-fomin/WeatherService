@@ -1,7 +1,13 @@
 package ru.mai.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.redis.core.RedisHash;
+
+@RedisHash("weather")
 public class Weather {
 
+    @Id
+    private String id;
     private String date;
     private String minTempC;
     private String avgTempC;
@@ -9,6 +15,15 @@ public class Weather {
     private String sunHour;
 
     public Weather() {  }
+
+    public String getId() {
+        return id;
+    }
+
+    public Weather setId(String id) {
+        this.id = id;
+        return this;
+    }
 
     public String getDate() {
         return date;
@@ -20,7 +35,7 @@ public class Weather {
     }
 
     public String getMinTempC() {
-        return minTempC + " °C";
+        return minTempC;
     }
 
     public Weather setMinTempC(String minTempC) {
@@ -29,7 +44,7 @@ public class Weather {
     }
 
     public String getAvgTempC() {
-        return avgTempC + " °C";
+        return avgTempC;
     }
 
     public Weather setAvgTempC(String avgTempC) {
@@ -38,7 +53,7 @@ public class Weather {
     }
 
     public String getMaxTempC() {
-        return maxTempC + " °C";
+        return maxTempC;
     }
 
     public Weather setMaxTempC(String maxTempC) {

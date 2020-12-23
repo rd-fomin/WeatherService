@@ -3,6 +3,7 @@ package ru.mai.controllers;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 import ru.mai.model.Weather;
+import ru.mai.repository.WeatherRepository;
+import ru.mai.services.WeatherService;
+import ru.mai.services.WeatherServiceImpl;
 import ru.mai.utils.WeatherUtils;
 
 import java.io.IOException;
@@ -24,11 +28,14 @@ import java.util.Calendar;
 public class WeatherController {
     private final Logger logger = LoggerFactory.getLogger(WeatherController.class);
 
-    private final String host;
+    @Value("${url}")
+    private String host;
     private final String key = "1aa21815fa31432ea6f134434200312";
+    private final WeatherService weatherService;
 
-    public WeatherController(@Value("${url}") String host) {
-        this.host = host;
+    @Autowired
+    public WeatherController(WeatherService weatherService) {
+        this.weatherService = weatherService;
     }
 
     @GetMapping({"/"})
@@ -46,9 +53,11 @@ public class WeatherController {
         if (dt != null) {
             var calendar = Calendar.getInstance();
             calendar.setTimeInMillis(dt);
+            String date = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime());
             stringURL = host + "?q=" +
                     city + "&key=" + key + "&format=json" +
-                    "&date=" + new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime());
+                    "&date=" + date;
+            System.out.println(weatherService.existsByDate(date));
         } else {
             stringURL = host + "?q=" + city + "&key=" + key + "&format=json";
         }
