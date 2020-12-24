@@ -10,4 +10,8 @@ public interface WeatherService {
 
     boolean existsByDate(String date);
 
+    Weather findDistinctFirstByDate(String date);
+
+    Weather save(Weather weather);
+
 }

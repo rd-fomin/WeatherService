@@ -13,7 +13,7 @@
         <label for="holder-input-city">Input city</label><input id="holder-input-city" name="city" type="text" placeholder="Input city"/>
         <label for="holder-input-dt">Choose date</label>
         <select id="holder-input-dt" form="create-form" name="dt">
-            <option selected>none</option>
+            <option th:value="null" selected>none</option>
             <option th:each="date : ${dates}" th:text="${date.key}" th:value="${date.value}"></option>
         </select>
     </div>

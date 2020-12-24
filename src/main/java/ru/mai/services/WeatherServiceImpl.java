@@ -24,4 +24,14 @@ public class WeatherServiceImpl implements WeatherService {
         return weatherRepository.existsByDate(date);
     }
 
+    @Override
+    public Weather findDistinctFirstByDate(String date) {
+        return weatherRepository.findDistinctFirstByDate(date);
+    }
+
+    @Override
+    public Weather save(Weather weather) {
+        return weatherRepository.save(weather);
+    }
+
 }

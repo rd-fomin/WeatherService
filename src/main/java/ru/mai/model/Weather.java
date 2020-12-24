@@ -2,12 +2,14 @@ package ru.mai.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.index.Indexed;
 
 @RedisHash("weather")
 public class Weather {
 
     @Id
     private String id;
+    @Indexed
     private String date;
     private String minTempC;
     private String avgTempC;
